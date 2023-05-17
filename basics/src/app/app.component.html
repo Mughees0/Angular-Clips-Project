@@ -1,6 +1,10 @@
-<hr>
+<hr class="my-20" />
 
+<button (click)="blueClass = !blueClass" [ngClass]="{ blue: blueClass }">
+  Change
+</button>
 
+<p *ngIf="blueClass">The Button is Blue!</p>
 
 <input
   (keyup)="changeImage($event)"
@@ -10,9 +14,14 @@
   id=""
 />
 
-<app-post (imgSelected)="LogImg($event)" [postImg]="imgURL">
-  <p>Hello new caption!</p>
+<app-post
+  *ngFor="let image of images; let i = index"
+  (imgSelected)="LogImg($event)"
+  [postImg]="image"
+>
+  <p>{{ i }}Hello new caption!</p>
 </app-post>
+
 <p>Hello {{ name | titlecase }}</p>
 <p>Hello {{ getName() }}</p>
 <p>{{ 15 + 13 }}</p>

@@ -15,6 +15,13 @@ export class AppComponent {
     size: 'large',
   };
 
+  blueClass = false;
+  images = [
+    'https://picsum.photos/id/237/500/500',
+    'https://picsum.photos/id/238/500/500',
+    'https://picsum.photos/id/239/500/500',
+  ];
+
   getName() {
     return this.name;
   }

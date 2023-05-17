@@ -7,3 +7,9 @@ input {
   display: block;
   margin: 10 0;
 }
+@layer components {
+  .blue {
+    background-color: blue;
+    color: white;
+  }
+}
