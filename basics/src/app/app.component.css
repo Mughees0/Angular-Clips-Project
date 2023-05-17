@@ -2,3 +2,8 @@ p {
   color: orange;
   background-color: black;
 }
+
+input {
+  display: block;
+  margin: 10 0;
+}
