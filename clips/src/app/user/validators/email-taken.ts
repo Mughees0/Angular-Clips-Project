@@ -1,7 +1,24 @@
+import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import {
+  AbstractControl,
+  AsyncValidator,
+  ValidationErrors,
+} from '@angular/forms';
 
-export class EmailTaken {
-    constructor(private auth: AngularFireAuth) {
-      
+@Injectable({
+  providedIn: 'root',
+})
+export class EmailTaken implements AsyncValidator {
+  constructor(private auth: AngularFireAuth) {}
+
+  validate = (control: AbstractControl): Promise<ValidationErrors | null> => {
+    return this.auth
+      .fetchSignInMethodsForEmail(control.value)
+      .then((res) => (res.length ? { emailTaken: true } : null));
+  };
+
+  registerOnValidatorChange?(fn: () => void): void {
+    throw new Error('Method not implemented.');
   }
 }
