@@ -12,7 +12,7 @@ export class NavComponent {
   constructor(
     public modal: ModalService,
     public auth: AuthService,
-    private afAuth: AngularFireAuth
+
   ) {}
 
   openModal($event: Event) {
@@ -20,8 +20,4 @@ export class NavComponent {
     this.modal.toggleModal('auth');
   }
 
-  async logout($event: Event) {
-    $event.preventDefault();
-    await this.afAuth.signOut();
-  }
 }
