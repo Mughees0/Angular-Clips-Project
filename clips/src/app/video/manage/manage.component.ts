@@ -19,6 +19,10 @@ export class ManageComponent {
   }
   sort(event: Event) {
     const { value } = event.target as HTMLSelectElement;
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: { sort: value },
+    });
     this.router.navigateByUrl(`/manage?sort=${value}`);
   }
 }
